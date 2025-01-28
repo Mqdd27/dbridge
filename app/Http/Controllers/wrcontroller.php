@@ -24,17 +24,17 @@ class wrcontroller extends Controller
         }
 
         if ($role === 'sm') {
-            return view('adminDashboard', compact('wr'));
+            return view('admindashboard', compact('wr'));
         } elseif ($role === 'supplier') {
-            return view('supplierDashboard', compact('wr'));
+            return view('supplierdashboard', compact('wr'));
         } else {
-            return view('userDashboard', compact('wr'));
+            return view('userdashboard', compact('wr'));
         }
     }
     public function create(): View
     {
         $stockCode = StockCode::all();
-        return view('create');
+        return view('wrcreate', compact('stockCode'));
     }
     public function store(Request $request): RedirectResponse
     {

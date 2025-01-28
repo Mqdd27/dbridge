@@ -96,13 +96,13 @@ class stockcodecontroller extends Controller
         $stockCode = StockCode::all();
 
         dd($stockCode);
-        return view('create', compact('stockCodes'));
+        return view('wrcreate', compact('stockCodes'));
     }
 
     public function edit($id)
     {
         $stockCode = StockCode::findOrFail($id);
-        return view('create', compact('stockCode'));
+        return view('wrcreate', compact('stockCode'));
     }
     public function update(Request $request, $id)
     {
@@ -134,7 +134,7 @@ class stockcodecontroller extends Controller
         $stockCode->delete(); // Menghapus data stock code
 
         // Redirect kembali dengan pesan sukses
-        return redirect()->route('create')->with('success', 'Stock Code berhasil dihapus!');
+        return redirect()->route('wrcreate')->with('success', 'Stock Code berhasil dihapus!');
     }
     public function create()
     {
@@ -143,6 +143,6 @@ class stockcodecontroller extends Controller
 
         dd($stockCode);
         // Mengirimkan data ke view create
-        return view('create', compact('stockCode'));
+        return view('wrcreate', compact('stockCode'));
     }
 }
